@@ -1,6 +1,8 @@
 // To have all my ajax request here and links to other forms.
 
 import React from 'react';
+import {Link,hashHistory} from 'react-router';
+import request from 'superagent';
 
 const propTypes = {
   children: React.PropTypes.element.isRequired,
@@ -10,9 +12,6 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
   }
-
-
-
 
   httpGetMovies() {
     const url = 'https://project-2-13dac.firebaseio.com/movies.json'
@@ -54,10 +53,19 @@ class Main extends React.Component {
             <input name="test" value="#" onChange="#"/>
             <input type="submit"/>
           </form>
+          <div className="container">
+            <ul>
+              <li><Link to="/towatch">To Watch</Link></li>
+              <li><Link to="/watching">Watching</Link></li>
+              <li><Link to="/watched">Watched</Link></li>
+            </ul>
+          </div>
         </div>
       </div>
     );
   }
 }
+
+Main.propTypes = propTypes;
 
 export default Main;
