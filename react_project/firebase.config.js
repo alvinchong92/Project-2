@@ -9,4 +9,4 @@ const firebase = require('firebase');
   };
   firebase.initializeApp(config);
 
-export default firebase;
+module.exports = firebase;
