@@ -33,7 +33,7 @@ class Register extends Component {
           .set({first_name: '', last_name: '', email: username})
       })
       .then(() => {
-        this.props.router.push('/main');
+        this.props.router.push('/App');
       })
   }
 
@@ -42,7 +42,7 @@ class Register extends Component {
       <div>
         <div id="register-form">
           <div>
-            <input name="username" onChange={this.handleChange} type="text" placeholder="username" />
+            <input name="username" onChange={this.handleChange} type="text" placeholder="email-address" />
           </div>
           <div>
             <input name="password" onChange={this.handleChange} type="password" placeholder="password" />

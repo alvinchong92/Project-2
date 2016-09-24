@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Router, Route, IndexRoute,hashHistory } from 'react-router';
-import Front from '../components/front.jsx';
 import Home from '../components/home.jsx';
 import Register from '../components/register.jsx';
 import Login from '../components/login.jsx';
@@ -13,18 +12,18 @@ import Watched from '../components/Watched.jsx';
 
 const Routes = () => {
   return (
-  <Router history={hashHistory}>
-    <Route path="/" component={Main} >
-      <IndexRoute component={Home}/>
-      <Route path="register" component={Register}/>
-      <Route path="login" component={Login}/>
-      <Route path="app" component={App} onEnter={requireAuth}>
-        <Route path="towatch" component={ToWatch} />
-        <Route path="watching" component={Watching} />
-        <Route path="watched" component={Watched} />
+    <Router history={hashHistory}>
+      <Route path="/" component={Main} >
+        <IndexRoute component={Home}/>
+        <Route path="register" component={Register}/>
+        <Route path="login" component={Login}/>
+        <Route path="app" component={App} onEnter={requireAuth}>
+          <Route path="/towatch" component={ToWatch} />
+          <Route path="/watching" component={Watching} />
+          <Route path="/watched" component={Watched} />
+        </Route>
       </Route>
-    </Route>
-  </Router>
+    </Router>
   );
 }
 

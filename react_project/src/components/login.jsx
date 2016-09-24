@@ -35,7 +35,7 @@ class Login extends Component {
           .set({first_name: '', last_name: '', email: username})
       })
       .then(() => {
-        this.props.router.push('/app');
+        this.props.router.push('app');
       })
   }
 

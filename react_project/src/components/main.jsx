@@ -57,9 +57,7 @@ class Main extends Component {
           this.loggedInLinks()
         }
       </div>
-      <div id="main-content">
       {this.props.children}
-      </div>
     </div>
     )
   }
