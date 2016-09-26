@@ -57,10 +57,17 @@ class App extends React.Component {
             });
   }
 
+  handletodoAdd() {
+    let newTodo ={
+      id: this.state.todos.length + 1,
+      text: text
+    }
+    this.setState({todos: this.state.todos.concat(newToDo)})
+  }
+
   render() {
     return(
       <div>
-        <Searchbar />
           <div id="watch-list">
              <div className="container">
                <ul>

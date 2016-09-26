@@ -33,12 +33,14 @@ class Main extends Component {
       });
   }
 
+
+
   loggedInLinks() {
     if(!this.state.loggedIn) {
       return(
         <div>
           <Link to="/login" id='login'> Login/ </Link>
-          <Link to="/register" id="register"> Register</Link>
+          <Link to="/register" id="register"> Sign Up</Link>
         </div>
       )
     }
