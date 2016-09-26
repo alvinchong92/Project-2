@@ -1,21 +1,22 @@
 import React from 'react';
 
 class TodoList extends React.Component {
-  constructor() {
-    super()
-    this.handleDelete = this.handleDelete.bind(this);
+  constructor(props) {
+    super(props);
+    this.onDelete = this.onDelete.bind(this);
   }
 
-  handleDelete(todo) {
-    console.log(todo)
+  onDelete() {
+    console.log("clicked")
   }
+
 
   render() {
     return(
       <ul>
       {
         this.props.todos.map(todo => {
-          return <li todo={todo} key={todo.id}>{todo.text} <a onClick ={this.handleDelete}> X </a></li>
+          return <li todo={todo} key={todo.id} > {todo.text} <button onClick ={this.onDelete} > X </button></li>
         })
       }
       </ul>

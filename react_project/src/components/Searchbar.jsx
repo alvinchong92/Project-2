@@ -25,6 +25,11 @@ class Searchbar extends React.Component {
     this.refs.text.value = '';
   }
 
+  handleDelete(todo) {
+    this.props.toDelete(todo);
+  }
+
+
   render() {
     return(
       <div>

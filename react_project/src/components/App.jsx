@@ -1,70 +1,12 @@
 import React from 'react';
 import {Link,hashHistory} from 'react-router';
 import request from 'superagent';
-import Searchbar from '../components/Searchbar.jsx';
 
 const propTypes = {
-  children: React.PropTypes.element.isRequired,
+  children: React.PropTypes.element,
 };
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   movie: '',
-  //   },
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  //   this.handleEditOfMovie = this.handleEditOfMovie.bind(this);
-  // }
-
-  // handleSubmit(e) {
-  //   e.preventDefault;
-  //   this.httpPostMovie({
-  //     m: this.state.movie,
-  //   });
-  // }
-
-  // handleEditOfMovie(e) {
-  //   const movie = e.target.value;
-  //   this.setState({ movie })
-  // }
-}
-
-
-  componentDidMount() {
-    this.httpGetMovies();
-  }
-  httpGetMovies() {
-    const url = 'https://project-2-36511.firebaseio.com/movies.json'
-    request.get(url).then((response) => {
-      console.log(response)
-      const movies = response.body;
-    });
-  }
-
-  httpPostMovie(data) {
-    const url = 'https://project-2-36511.firebaseio.com/movies.json';
-    request.post(url).send(data).then(() => {
-      this.httpGetMovies();
-    });
-  }
-
-  httpDeleteMovie(id) {
-    const url = `https://project-2-36511.firebaseio.com/${id}`
-    request.del(url)
-            .then(() => {
-              this.httpGetMovies()
-            });
-  }
-
-  handletodoAdd() {
-    let newTodo ={
-      id: this.state.todos.length + 1,
-      text: text
-    }
-    this.setState({todos: this.state.todos.concat(newToDo)})
-  }
-
   render() {
     return(
       <div>

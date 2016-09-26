@@ -29,26 +29,17 @@ class ToWatch extends React.Component {
     this.handleTodoAdd = this.handleTodoAdd.bind(this);
   }
 
-  // componentDidMount() {
-  //   const rootRef = firebase.database.ref().child('movie');
-  //   const movieRef = rootRef.child('movie');
-  //   movieRef.on = ('value', snap => {
-  //     this.setState({
-  //       movie: snap.val()
-  //     });
-  //   })
-
-  // }
-
   handleTodoAdd(text) {
     let newToDo = {
       id: this.state.todos.length + 1,
       text: text
     }
+
+    let rootRef = firebase.database().ref().child('movie')
+    let  d= rootRef.push(newToDo)
+
     this.setState({todos: this.state.todos.concat(newToDo)})
   }
-
-
 
   render() {
     return (

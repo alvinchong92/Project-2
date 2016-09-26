@@ -35,8 +35,8 @@ class Login extends Component {
           .set({first_name: '', last_name: '', email: username})
       })
       .then(() => {
-        const userId = firebase.auth().currentUser.uid;
-        this.props.router.push(`/${userId}`);
+        // const userId = firebase.auth().currentUser.uid;
+        // this.props.router.push(`/${userId}`);
         this.props.router.push('app');
         });
   }
