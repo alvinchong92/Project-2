@@ -8,7 +8,7 @@ const propTypes = {
   handleMove: React.PropTypes.func,
 };
 
-class TodoList extends React.Component {
+class ToWatchList extends React.Component {
   render() {
     const postElements = this.props.posts.map((post, idx) => {
       return (
@@ -30,6 +30,6 @@ class TodoList extends React.Component {
   }
 }
 
-TodoList.propTypes = propTypes;
+ToWatchList.propTypes = propTypes;
 
-export default TodoList;
+export default ToWatchList;

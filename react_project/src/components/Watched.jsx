@@ -1,6 +1,6 @@
 import React from 'react';
 import request from 'superagent';
-import TodoList from '../components/TodoList.jsx';
+import ToWatchList from '../components/ToWatchList.jsx';
 import Post from '../components/Posts.jsx';
 
 class Watched extends React.Component {
@@ -28,20 +28,18 @@ class Watched extends React.Component {
                  const individualPostData = postsData[id];
                  return {
                    id,
-                   author: individualPostData.author,
                    content: individualPostData.content,
-                   likeCount: individualPostData.likeCount,
                  };
                });
              }
              this.setState({ posts });
            });
   }
-  handlePublish({ id, content, author, likeCount }) {
+  handlePublish({ id, content, }) {
     if (id) {
-      this.httpUpdatePost({ id, content, author, likeCount });
+      this.httpUpdatePost({ id, content });
     } else {
-      this.httpPublishPost({ content, author, likeCount });
+      this.httpPublishPost({ content});
     }
   }
   httpDeletePost(id) {
@@ -51,18 +49,18 @@ class Watched extends React.Component {
              this.httpGetPosts();
            });
   }
-  httpUpdatePost({ id, content, author, likeCount }) {
+  httpUpdatePost({ id, content }) {
     const url = `https://project-2-36511.firebaseio.com/watched/${id}.json`;
     request.patch(url)
-           .send({ content, author, likeCount })
+           .send({ content })
            .then(() => {
              this.httpGetPosts();
            });
   }
-  httpPublishPost({ content, author }) {
+  httpPublishPost({ content }) {
     const url = 'https://project-2-36511.firebaseio.com/watched.json';
     request.post(url)
-           .send({ content, author, likeCount: 0 })
+           .send({ content })
            .then(() => {
              this.httpGetPosts();
            });
@@ -70,7 +68,7 @@ class Watched extends React.Component {
   render() {
     return (
       <div className="container">
-        <TodoList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} posts={this.state.posts} />
+        <ToWatchList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} posts={this.state.posts} />
         <Post handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} />
       </div>
     );

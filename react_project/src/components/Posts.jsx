@@ -1,5 +1,4 @@
 import React from 'react';
-import LikeButton from '../components/LikeButton.jsx';
 
 const propTypes = {
   content: React.PropTypes.string,
@@ -60,11 +59,7 @@ class Post extends React.Component {
             name="content"
             value={this.state.localContent}
             onChange={this.handleEditOfContent}
-          />
-          <input
-            type="submit"
-            value="SAVE"
-            className="hidden"
+            placeholder="Whatcha watching?"
           />
         </form>
         {activeButtons}

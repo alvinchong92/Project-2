@@ -19,6 +19,7 @@ class PostItem extends React.Component {
       id: this.props.id,
       content: this.state.localContent,
     });
+    this.props.handleDelete(this.props.id);
     this.setState({ id, content });
   }
 
@@ -29,8 +30,8 @@ class PostItem extends React.Component {
           <div>
           <p>{this.props.content}</p>
             </div>
-          <button onClick={this.handleDeleteClick}>x</button>
-          <button onClick={this.handleMoveClick}> "Move" </button>
+          <button onClick={this.handleDeleteClick}>X</button>
+          <button onClick={this.handleMoveClick}> Watched </button>
           </li>
       </div>
     )

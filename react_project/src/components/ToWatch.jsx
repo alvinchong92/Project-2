@@ -1,6 +1,6 @@
 import React from 'react';
 import request from 'superagent';
-import TodoList from '../components/TodoList.jsx';
+import ToWatchList from '../components/ToWatchList.jsx';
 import Post from '../components/Posts.jsx';
 
 class ToWatch extends React.Component {
@@ -67,11 +67,6 @@ class ToWatch extends React.Component {
            });
   }
 
-  handleMovePublish({ id, content}) {
-    this.handleMove(content),
-    this.httpDeletePost(id)
-  }
-
   handleMove({ content }) {
      const url = 'https://project-2-36511.firebaseio.com/watched.json';
      request.post(url)
@@ -86,8 +81,8 @@ class ToWatch extends React.Component {
   render() {
     return (
       <div className="container">
-        <TodoList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} handleMove={this.handleMove} posts={this.state.posts} />
-        <Post handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} handleMove ={this.handleMove}/>
+        <ToWatchList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} handleMove={this.handleMove} posts={this.state.posts} />
+        <Post handleDelete={this.httpDeletePost} handlePublish={this.handlePublish}/>
       </div>
     );
   }
