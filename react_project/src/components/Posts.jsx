@@ -47,7 +47,8 @@ class Post extends React.Component {
       activeButtons = (
         <div className="active-buttons">
           <button onClick={this.handleDeleteClick}>x</button>
-          <button onClick={this.handleMoveClick}>"Move"</button>
+          <button onClick={this.handleWatchingClick}> Watching </button>
+          <button onClick={this.handleWatchedClick}> Watched </button>
         </div>
       );
     }

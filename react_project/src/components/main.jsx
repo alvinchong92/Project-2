@@ -54,7 +54,7 @@ class Main extends Component {
     return (
       <div>
         <div id="main-nav">
-        <h1> Poop List  </h1>
+        <h1 id="title"> MOOvies  </h1>
         {
           this.loggedInLinks()
         }

@@ -91,6 +91,7 @@ class ToWatch extends React.Component {
   render() {
     return (
       <div className="container">
+         <h1 id="title"> To Watch </h1>
         <ToWatchList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} handleWatched={this.handleWatched}
         handleWatching = {this.handleWatching} posts={this.state.posts} />
         <Post handleDelete={this.httpDeletePost} handlePublish={this.handlePublish}/>

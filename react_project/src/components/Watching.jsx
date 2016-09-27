@@ -89,6 +89,7 @@ class Watching extends React.Component {
   render() {
     return (
       <div className="container">
+      <h1 id="title"> Watching </h1>
         <ToWatchList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish}
          handleWatched={this.handleWatched} posts={this.state.posts} />
         <Post handleDelete={this.httpDeletePost} handlePublish={this.handlePublish}/>

@@ -1,3 +1,7 @@
+body {
+  background-image: url(http://deskbg.com/i/c/1920x1200/wpp/6/6839/game-thrones-supernatural-desktop-background.jpg)
+}
+
 #main-nav{
   background: lightblue;
   position:absolute;
@@ -93,6 +97,12 @@ ul {
   position: relative;
   top: 2rem;
 }
+
+#title {
+  font-family: 'Baloo Bhai', cursive;
+}
+
+
 
 
 
