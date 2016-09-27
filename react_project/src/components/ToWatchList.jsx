@@ -5,7 +5,8 @@ const propTypes = {
   posts: React.PropTypes.array.isRequired,
   handlePublish: React.PropTypes.func,
   handleDelete: React.PropTypes.func,
-  handleMove: React.PropTypes.func,
+  handleWatched: React.PropTypes.func,
+  handleWatching: React.PropTypes.func,
 };
 
 class ToWatchList extends React.Component {
@@ -16,7 +17,8 @@ class ToWatchList extends React.Component {
             key={idx}
             handleDelete={this.props.handleDelete}
             handlePublish={this.props.handlePublish}
-            handleMove={this.props.handleMove}
+            handleWatched={this.props.handleWatched}
+            handleWatching={this.props.handleWatching}
             content={post.content}
             id={post.id}
           />

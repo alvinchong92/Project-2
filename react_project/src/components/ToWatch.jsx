@@ -13,7 +13,8 @@ class ToWatch extends React.Component {
     this.httpUpdatePost = this.httpUpdatePost.bind(this);
     this.httpPublishPost = this.httpPublishPost.bind(this);
     this.httpDeletePost = this.httpDeletePost.bind(this);
-    this.handleMove = this.handleMove.bind(this);
+    this.handleWatched = this.handleWatched.bind(this);
+    this.handleWatching = this.handleWatching.bind(this);
   }
   componentDidMount() {
     this.httpGetPosts();
@@ -67,7 +68,7 @@ class ToWatch extends React.Component {
            });
   }
 
-  handleMove({ content }) {
+  handleWatched({ content }) {
      const url = 'https://project-2-36511.firebaseio.com/watched.json';
      request.post(url)
            .send({ content })
@@ -76,12 +77,22 @@ class ToWatch extends React.Component {
            });
   }
 
+  handleWatching({ content }) {
+    const url = 'https://project-2-36511.firebaseio.com/watching.json'
+    request.post(url)
+           .send({ content })
+           .then(() => {
+              this.httpGetPosts();
+           });
+  }
+
 
 
   render() {
     return (
       <div className="container">
-        <ToWatchList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} handleMove={this.handleMove} posts={this.state.posts} />
+        <ToWatchList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} handleWatched={this.handleWatched}
+        handleWatching = {this.handleWatching} posts={this.state.posts} />
         <Post handleDelete={this.httpDeletePost} handlePublish={this.handlePublish}/>
       </div>
     );

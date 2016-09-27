@@ -7,20 +7,30 @@ class PostItem extends React.Component {
       localContent: this.props.content || '',
     };
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
-    this.handleMoveClick = this.handleMoveClick.bind(this);
+    this.handleWatchedClick = this.handleWatchedClick.bind(this);
+    this.handleWatchingClick = this.handleWatchingClick.bind(this);
   }
 
   handleDeleteClick() {
     this.props.handleDelete(this.props.id);
   }
 
-  handleMoveClick() {
-    this.props.handleMove({
+  handleWatchingClick() {
+    this.props.handleWatching({
       id: this.props.id,
       content: this.state.localContent,
     });
     this.props.handleDelete(this.props.id);
-    this.setState({ id, content });
+    this.setState({ content });
+  }
+
+  handleWatchedClick() {
+    this.props.handleWatched({
+      id: this.props.id,
+      content: this.state.localContent,
+    });
+    this.props.handleDelete(this.props.id);
+    this.setState({ content });
   }
 
   render() {
@@ -31,7 +41,8 @@ class PostItem extends React.Component {
           <p>{this.props.content}</p>
             </div>
           <button onClick={this.handleDeleteClick}>X</button>
-          <button onClick={this.handleMoveClick}> Watched </button>
+          <button onClick={this.handleWatchingClick}> Watching </button>
+          <button onClick={this.handleWatchedClick}> Watched </button>
           </li>
       </div>
     )
