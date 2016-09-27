@@ -3,10 +3,8 @@ import LikeButton from '../components/LikeButton.jsx';
 
 const propTypes = {
   content: React.PropTypes.string,
-  author: React.PropTypes.string,
-  likeCount: React.PropTypes.number,
   handlePublish: React.PropTypes.func,
-  handleDelete: React.PropTypes.func,
+  handleMove: React.PropTypes.func,
   id: React.PropTypes.string,
 };
 
@@ -14,28 +12,18 @@ class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      localAuthor: this.props.author || '',
       localContent: this.props.content || '',
     };
-    this.handleEditOfAuthor = this.handleEditOfAuthor.bind(this);
     this.handleEditOfContent = this.handleEditOfContent.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDeleteClick = this.handleDeleteClick.bind(this);
-    this.handleLikeClick = this.handleLikeClick.bind(this);
     this.isSaved = this.isSaved.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
-      localAuthor: nextProps.author || '',
       localContent: nextProps.content || '',
     });
   }
-  handleEditOfAuthor(e) {
-    const newAuthor = e.target.value;
-    this.setState({
-      localAuthor: newAuthor,
-    });
-  }
+
   handleEditOfContent(e) {
     const newContent = e.target.value;
     this.setState({
@@ -46,27 +34,13 @@ class Post extends React.Component {
     e.preventDefault();
     this.props.handlePublish({
       id: this.props.id,
-      author: this.state.localAuthor,
       content: this.state.localContent,
     });
     this.setState({ saved: true });
   }
-  handleDeleteClick() {
-    this.props.handleDelete(this.props.id);
-  }
-  handleLikeClick() {
-    let localLikeCount = this.props.likeCount;
-    localLikeCount += 1;
-    this.props.handlePublish({
-      likeCount: localLikeCount,
-      id: this.props.id,
-      author: this.state.localAuthor,
-      content: this.state.localContent,
-    });
-  }
+
   isSaved() {
-    return this.props.author === this.state.localAuthor &&
-          this.props.content === this.state.localContent;
+    return this.props.content === this.state.localContent;
   }
   render() {
     let activeButtons;
@@ -74,10 +48,7 @@ class Post extends React.Component {
       activeButtons = (
         <div className="active-buttons">
           <button onClick={this.handleDeleteClick}>x</button>
-          <LikeButton
-            handleLikeClick={this.handleLikeClick}
-            likeCount={this.props.likeCount}
-          />
+          <button onClick={this.handleMoveClick}>"Move"</button>
         </div>
       );
     }

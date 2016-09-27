@@ -5,6 +5,7 @@ const propTypes = {
   posts: React.PropTypes.array.isRequired,
   handlePublish: React.PropTypes.func,
   handleDelete: React.PropTypes.func,
+  handleMove: React.PropTypes.func,
 };
 
 class TodoList extends React.Component {
@@ -15,12 +16,12 @@ class TodoList extends React.Component {
             key={idx}
             handleDelete={this.props.handleDelete}
             handlePublish={this.props.handlePublish}
+            handleMove={this.props.handleMove}
             content={post.content}
             id={post.id}
           />
       );
     });
-    // Place all the lis in the Postlists elemtns
     return (
       <ul>
         {postElements}

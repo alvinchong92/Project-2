@@ -3,17 +3,25 @@ import React from 'react';
 class PostItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      localContent: this.props.content || '',
+    };
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
-    this.handleMove = this.handleMove.bind(this);
+    this.handleMoveClick = this.handleMoveClick.bind(this);
   }
 
   handleDeleteClick() {
     this.props.handleDelete(this.props.id);
   }
 
-  handleMove(){
-    console.log("clicked")
+  handleMoveClick() {
+    this.props.handleMove({
+      id: this.props.id,
+      content: this.state.localContent,
+    });
+    this.setState({ id, content });
   }
+
   render() {
     return(
       <div id ="content">
@@ -22,7 +30,7 @@ class PostItem extends React.Component {
           <p>{this.props.content}</p>
             </div>
           <button onClick={this.handleDeleteClick}>x</button>
-          <button onClick={this.handleMove}> "Move" </button>
+          <button onClick={this.handleMoveClick}> "Move" </button>
           </li>
       </div>
     )
