@@ -1,10 +1,9 @@
 # Project-2
 
-##Project MVP 
+#MOOvies
 
-*Has sign in authorization
-* A crud application that allows users to post/update/delete tv shows or movies
-
+A crud application that allows users to post about movies they are interested in watching,
+movies watching and movies that are watching. 
 
 
 
@@ -15,13 +14,3 @@
 *React
 *Firebase
 
-##Next Steps 
-
-planning the features and coding of the app 
-
-
-
-## Bonuses
-pull data from 
-
-omdapi api giving ratings / length
