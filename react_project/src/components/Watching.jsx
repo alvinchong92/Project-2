@@ -77,11 +77,20 @@ class Watching extends React.Component {
   }
 
 
+  handleWatched({ content }) {
+     const url = 'https://project-2-36511.firebaseio.com/watched.json';
+     request.post(url)
+           .send({ content })
+           .then(() => {
+             this.httpGetPosts();
+           });
+  }
 
   render() {
     return (
       <div className="container">
-        <ToWatchList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} handleMove={this.handleMove} posts={this.state.posts} />
+        <ToWatchList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish}
+         handleWatched={this.handleWatched} posts={this.state.posts} />
         <Post handleDelete={this.httpDeletePost} handlePublish={this.handlePublish}/>
       </div>
     );
