@@ -2,8 +2,8 @@
 
 #MOOvies
 
-A crud application that allows users to post about movies they are interested in watching,
-movies watching and movies that are watching. 
+A C.R.U.D application that allows users to post about movies they are interested in watching,
+movies watching and movies that have been watched.
 
 
 
