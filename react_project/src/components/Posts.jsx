@@ -1,4 +1,5 @@
 import React from 'react';
+import LikeButton from '../components/LikeButton.jsx';
 
 const propTypes = {
   content: React.PropTypes.string,
@@ -83,12 +84,6 @@ class Post extends React.Component {
     return (
       <div className={this.isSaved() ? 'saved' : 'not-saved'} >
         <form className="post-display" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="author"
-            value={this.state.localAuthor}
-            onChange={this.handleEditOfAuthor}
-          />
           <input
             type="text"
             name="content"

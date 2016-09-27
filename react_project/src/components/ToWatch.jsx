@@ -1,54 +1,81 @@
 import React from 'react';
-import {Link} from 'react-router'
-import firebase from '../../firebase.config.js';
+import request from 'superagent';
 import TodoList from '../components/TodoList.jsx';
-import Searchbar from '../components/Searchbar.jsx';
+import Post from '../components/Posts.jsx';
 
 class ToWatch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
-      todos: [
-      {
-        id: 1,
-        text: "Meeting at Work"
-      },
-      {
-        id: 2,
-        text: "Bring kids to school"
-      },
-
-      {
-        id: 3,
-        text: "asdsasad"
-      }
-
-      ]
+      posts: [],
+    };
+    this.handlePublish = this.handlePublish.bind(this);
+    this.httpUpdatePost = this.httpUpdatePost.bind(this);
+    this.httpPublishPost = this.httpPublishPost.bind(this);
+    this.httpDeletePost = this.httpDeletePost.bind(this);
+  }
+  componentDidMount() {
+    this.httpGetPosts();
+  }
+  httpGetPosts() {
+    const url = 'https://project-2-36511.firebaseio.com/posts.json';
+    request.get(url)
+           .then((response) => {
+             const postsData = response.body;
+             let posts = [];
+             if (postsData) {
+               posts = Object.keys(postsData).map((id) => {
+                 const individualPostData = postsData[id];
+                 return {
+                   id,
+                   content: individualPostData.content,
+                 };
+               });
+             }
+             this.setState({ posts });
+           });
+  }
+  handlePublish({ id, content, author, likeCount }) {
+    if (id) {
+      this.httpUpdatePost({ id, content, author, likeCount });
+    } else {
+      this.httpPublishPost({ content });
     }
-    this.handleTodoAdd = this.handleTodoAdd.bind(this);
+  }
+  httpDeletePost(id) {
+    const url = `https://project-2-36511.firebaseio.com/posts/${id}.json`;
+    request.del(url)
+           .then(() => {
+             this.httpGetPosts();
+           });
+  }
+  httpUpdatePost({ id, content, author, likeCount }) {
+    const url = `https://project-2-36511.firebaseio.com/posts/${id}.json`;
+    request.patch(url)
+           .send({ content, author, likeCount })
+           .then(() => {
+             this.httpGetPosts();
+           });
+  }
+  httpPublishPost({ content, author }) {
+    const url = 'https://project-2-36511.firebaseio.com/posts.json';
+    request.post(url)
+           .send({ content,  })
+           .then(() => {
+             this.httpGetPosts();
+           });
   }
 
-  handleTodoAdd(text) {
-    let newToDo = {
-      id: this.state.todos.length + 1,
-      text: text
-    }
-
-    let rootRef = firebase.database().ref().child('movie')
-    let  d= rootRef.push(newToDo)
-
-    this.setState({todos: this.state.todos.concat(newToDo)})
-  }
 
   render() {
     return (
-      <div id="todoList">
-        <Searchbar onTodoAdd ={this.handleTodoAdd}/>
-        <TodoList todos={this.state.todos} />
+      <div className="container">
+        <TodoList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} posts={this.state.posts} />
+        <Post handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} />
       </div>
     );
   }
 }
+
 
 export default ToWatch;

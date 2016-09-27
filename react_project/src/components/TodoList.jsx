@@ -1,27 +1,34 @@
 import React from 'react';
+import PostItem from '../components/PostItem.jsx';
+
+const propTypes = {
+  posts: React.PropTypes.array.isRequired,
+  handlePublish: React.PropTypes.func,
+  handleDelete: React.PropTypes.func,
+};
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onDelete = this.onDelete.bind(this);
-  }
-
-  onDelete() {
-    console.log("clicked")
-  }
-
-
   render() {
-    return(
+    const postElements = this.props.posts.map((post, idx) => {
+      return (
+          <PostItem
+            key={idx}
+            handleDelete={this.props.handleDelete}
+            handlePublish={this.props.handlePublish}
+            content={post.content}
+            id={post.id}
+          />
+      );
+    });
+    // Place all the lis in the Postlists elemtns
+    return (
       <ul>
-      {
-        this.props.todos.map(todo => {
-          return <li todo={todo} key={todo.id} > {todo.text} <button onClick ={this.onDelete} > X </button></li>
-        })
-      }
+        {postElements}
       </ul>
-    )
+    );
   }
 }
+
+TodoList.propTypes = propTypes;
 
 export default TodoList;
