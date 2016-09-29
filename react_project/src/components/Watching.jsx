@@ -66,7 +66,6 @@ class Watching extends React.Component {
              this.httpGetPosts();
            });
   }
-
   handleMove({ content }) {
      const url = 'https://project-2-36511.firebaseio.com/watched.json';
      request.post(url)
@@ -75,9 +74,7 @@ class Watching extends React.Component {
              this.httpGetPosts();
            });
   }
-
-
-  handleWatched({ content }) {
+  handleWatched({ content, newContent}) {
      const url = 'https://project-2-36511.firebaseio.com/watched.json';
      request.post(url)
            .send({ content })
@@ -85,11 +82,10 @@ class Watching extends React.Component {
              this.httpGetPosts();
            });
   }
-
   render() {
     return (
       <div className="container">
-      <h1 id="title"> Watching </h1>
+      <h1 className="title"> Watching </h1>
         <ToWatchList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish}
          handleWatched={this.handleWatched} posts={this.state.posts} />
         <Post handleDelete={this.httpDeletePost} handlePublish={this.handlePublish}/>

@@ -13,6 +13,7 @@ class ToWatchList extends React.Component {
   render() {
     const postElements = this.props.posts.map((post, idx) => {
       return (
+          <div key={idx}>
           <PostItem
             key={idx}
             handleDelete={this.props.handleDelete}
@@ -22,6 +23,7 @@ class ToWatchList extends React.Component {
             content={post.content}
             id={post.id}
           />
+        </div>
       );
     });
     return (

@@ -15,6 +15,7 @@ class ToWatch extends React.Component {
     this.httpDeletePost = this.httpDeletePost.bind(this);
     this.handleWatched = this.handleWatched.bind(this);
     this.handleWatching = this.handleWatching.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
   componentDidMount() {
     this.httpGetPosts();
@@ -86,14 +87,16 @@ class ToWatch extends React.Component {
            });
   }
 
-
+  handleEdit() {
+    alert("OOOOPS")
+  }
 
   render() {
     return (
       <div className="container">
-         <h1 id="title"> To Watch </h1>
+         <h1 className="title"> To Watch </h1>
         <ToWatchList handleDelete={this.httpDeletePost} handlePublish={this.handlePublish} handleWatched={this.handleWatched}
-        handleWatching = {this.handleWatching} posts={this.state.posts} />
+        handleWatching = {this.handleWatching} posts={this.state.posts} handleEditofContent = {this.handleEdit}/>
         <Post handleDelete={this.httpDeletePost} handlePublish={this.handlePublish}/>
       </div>
     );

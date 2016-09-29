@@ -13,9 +13,9 @@ class App extends React.Component {
           <div id="watch-list">
              <div className="container">
                <ul id="links">
-                 <ol><Link to="/towatch">To Watch</Link></ol>
-                 <ol><Link to="/watching">Watching</Link></ol>
-                 <ol><Link to="/watched">Watched</Link></ol>
+                 <ol><Link to="/towatch"> Poop </Link></ol>
+                 <ol><Link to="/watching">Watching Poop </Link></ol>
+                 <ol><Link to="/watched">Watched Poop </Link></ol>
                 </ul>
               {this.props.children}
             </div>

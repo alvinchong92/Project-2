@@ -33,7 +33,7 @@ class Register extends Component {
           .set({first_name: '', last_name: '', email: username})
       })
       .then(() => {
-        this.props.router.push('login');
+        this.props.router.push('app');
       })
   }
 
