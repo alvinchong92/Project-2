@@ -1,5 +1,6 @@
-var express = require('express');
-var app = express();
+const path = require('path');
+const express = require('express');
+const app = express();
 
 app.use(express.static(path.join(__dirname, '/static')));
 app.get('/', (request, response) => {
