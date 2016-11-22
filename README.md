@@ -8,9 +8,9 @@ movies watching and movies that have been watched.
 
 
 ##Technologies 
-*HTML
-*CSS
-*Javascript
-*React
-*Firebase
+* HTML
+* CSS
+* Javascript
+* React
+* Firebase
 
