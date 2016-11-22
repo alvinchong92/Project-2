@@ -78,7 +78,7 @@ class ToWatch extends React.Component {
   }
 
   handleWatching({ content }) {
-    const url = 'https://project-2-36511.firebaseio.com/watching.json'
+    const url = 'https://project-2-36511.firittebaseio.com/watching.json'
     request.post(url)
            .send({ content })
            .then(() => {
