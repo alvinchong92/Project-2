@@ -1,0 +1,110 @@
+#main-nav{
+  background: lightblue;
+  position:absolute;
+  top: 0;
+  left:0;
+  width:100%;
+  text-align: center;
+  margin-bottom: 0rem;
+}
+
+input {
+  text-align: center;
+  width: 40rem;
+  display:inline-block;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+.btn {
+  background-color: lightblue;
+  height: 1.4rem;
+  width: 8rem;
+  box-sizing: border-box;
+  border-radius: 10%;
+  left: 3rem;
+}
+
+
+ol {
+  position: relative;
+  padding: 1rem;
+  margin: 0 auto;
+  float: left;
+}
+#login {
+  position: absolute;
+  top: 1rem;
+  right:5.7rem;
+}
+
+#login-form {
+  position: absolute;
+  top: 14rem;
+  left: 20rem;
+}
+
+#register {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+
+#register-form {
+  position: absolute;
+  top: 14rem;
+  left: 20rem;
+}
+
+#signout {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+
+ul {
+  padding: 20px;
+  margin: 6px;
+}
+
+
+#input-field {
+  width: 92%;
+  opacity: 0.6;
+}
+
+#main-banner {
+  text-align: center;
+}
+
+#watch-list {
+  text-align: center;
+  position: absolute;
+  top: 10rem;
+  left: 20rem;
+}
+
+#toWatchForm {
+  position: absolute;
+  top: 10rem;
+  left: 20rem;
+}
+
+#title {
+  position: relative;
+  text-align: center;
+  font-family: 'Patua One', cursive;
+}
+
+#content {
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  padding: 2rem;
+  border-bottom: 1px black solid;
+  border-spacing: 1rem;
+}
+
+#button {
+  float: right;
+}
